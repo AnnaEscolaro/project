@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import Wallet from './pages/Wallet';
-import NotFound from './pages/NotFound'
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
