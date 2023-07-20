@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
-import wallet from '../redux/reducers/wallet';
-import { ExpensesType, UserType } from '../types';
+import { UserType } from '../types';
 
 function Header() {
   const email = useSelector((state: UserType) => state.user.email);
