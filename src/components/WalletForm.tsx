@@ -43,10 +43,14 @@ function WalletForm() {
   };
 
   const fetchRate = async () => {
-    const response = await fetch('https://economia.awesomeapi.com.br/json/all');
-    const data = await response.json();
-    delete data.USDT;
-    return data;
+    try {
+      const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+      const data = await response.json();
+      delete data.USDT;
+      return data;
+    } catch {
+      console.log('erro');
+    }
   };
 
   const handleClick = async (e: React.MouseEvent<HTMLElement>) => {
