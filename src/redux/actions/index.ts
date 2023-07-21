@@ -59,37 +59,3 @@ export const addExpenses = ({
     id, value, currency, method, tag, description, exchangeRates,
   },
 });
-
-export const requestRate = () => ({
-  type: REQUEST_RATE,
-});
-
-export const requestRateSucess = (data: any) => ({
-  type: REQUEST_RATE_SUCCESS,
-  payload: data,
-});
-
-export const requestRateError = (errorMessage: string) => ({
-  type: REQUEST_RATE_ERROR,
-  payload: {
-    errorMessage,
-  },
-});
-
-export const fetchRate = () => {
-  return async (dispatch: Dispatch) => {
-    dispatch(requestRate());
-    try {
-      const response = await fetch('https://economia.awesomeapi.com.br/json/all');
-      const data = await response.json();
-      delete data.USDT;
-      dispatch(requestRateSucess(data));
-    } catch (error) {
-      if (error instanceof Error) {
-        dispatch(requestRateError(error.message));
-      } else {
-        dispatch(requestRateError('Erro desconhecido ao buscar moeda'));
-      }
-    }
-  };
-};
