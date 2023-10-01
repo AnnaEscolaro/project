@@ -5,6 +5,8 @@ function Table() {
     (state: any) => state.wallet.expenses,
   );
 
+  const handleClick = () => {};
+
   return (
     <table>
       <thead>
@@ -35,6 +37,10 @@ function Table() {
                 .toFixed(2) }
             </td>
             <td>Real</td>
+            <td>
+              <button>Editar</button>
+              <button data-testid="delete-btn" onClick={ handleClick }>Excluir</button>
+            </td>
           </tr>
         ))}
       </tbody>
